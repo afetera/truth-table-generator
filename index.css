@@ -37,6 +37,9 @@ html, body {
 }
 
 .connectors button {
+  width: 80px;
+  height:80px;
+  border-radius: 30px;
   background-color: #ffffff;
   border: 1px solid #dfdfdf;
 }
@@ -52,7 +55,8 @@ html, body {
 .input input {
   font-size: 20px;
   height: 2rem;
-  border-radius: 8px;
+  width: 31rem;
+  border-radius: 10px;
 }
 
 .input input:focus {
