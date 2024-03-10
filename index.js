@@ -130,7 +130,7 @@ const check = (postExp) => {
   let checkStack = [];
   for( let it of postExp) {
     if( it === '(' || it === ')') {
-      errorInfo.innerHTML = "<span>" + it + "</span> has no matching close parenthesis." 
+      errorInfo.innerHTML = "<span>" + it + "</span> 没有匹配的右括号" 
       truthTable.innerHTML = "";
       return false;
     } else if( priority.indexOf( it) !== -1) {
@@ -139,22 +139,22 @@ const check = (postExp) => {
         if( temp !== '~' 
           || !checkStack.length
           || !satisfyVariable(temp)) {
-          errorInfo.innerHTML = "<span>" + it + "</span> missing an opearnd." 
+          errorInfo.innerHTML = "<span>" + it + "</span> 丢失必要参数" 
         }
         checkStack.push(temp);
       } else {
         const temp2 = checkStack.pop();
         if( !checkStack.length) {
-          errorInfo.innerHTML = "<span>" + it + "</span> missing an opearnd." 
+          errorInfo.innerHTML = "<span>" + it + "</span> 丢失必要参数" 
           return false;
         }
         const temp1 = checkStack.pop();
         if( !satisfyVariable(temp2)) {
-          errorInfo.innerHTML = "<span>" + temp2 + "</span> is not a valid variable." 
+          errorInfo.innerHTML = "<span>" + temp2 + "</span> 是个不可用变量" 
           truthTable.innerHTML = "";
           return false;
         } else if(!satisfyVariable(temp1)) {
-          errorInfo.innerHTML = "<span>" + temp1 + "</span> is not a valid variable." 
+          errorInfo.innerHTML = "<span>" + temp1 + "</span> 是个不可用变量" 
           truthTable.innerHTML = "";
           return false;
         }
@@ -162,7 +162,7 @@ const check = (postExp) => {
       }
     } else {
       if( !satisfyVariable(it)){
-        errorInfo.innerHTML = "<span>" + it + "</span> should not be here." 
+        errorInfo.innerHTML = "<span>" + it + "</span> 不应该出现在这里" 
         truthTable.innerHTML = "";
         return false;
       }
@@ -173,7 +173,7 @@ const check = (postExp) => {
   if( (checkStack.length !== 1 && satisfyVariable(checkStack[checkStack.length - 1]))
     || (checkStack.length == 1 && !satisfyVariable(checkStack[checkStack.length - 1])) 
   ) {
-    errorInfo.innerHTML = "<span>" + checkStack[checkStack.length - 1] + "</span> should not be here." 
+    errorInfo.innerHTML = "<span>" + checkStack[checkStack.length - 1] + "</span> 不应该出现在这里" 
     truthTable.innerHTML = "";
     return false;
   } 
