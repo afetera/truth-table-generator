@@ -130,7 +130,7 @@ const check = (postExp) => {
   let checkStack = [];
   for( let it of postExp) {
     if( it === '(' || it === ')') {
-      errorInfo.innerHTML = "<span>" + it + "</span> 没有匹配的右括号" 
+      errorInfo.innerHTML = "<span>" + it + "</span> 没有匹配的括号" 
       truthTable.innerHTML = "";
       return false;
     } else if( priority.indexOf( it) !== -1) {
